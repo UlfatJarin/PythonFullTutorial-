@@ -105,3 +105,105 @@ student2 = Student('Jarin',24,'A-')
 print(student1.name , student1.age ,student1.grade)
 print(student2.name , student2.age ,student2.grade)
 
+
+"""
+default constructor(self)
+parameterized constructor (self,name,age)
+constuctor with defult values(self, name ="unknown", age=0)
+"""
+
+#polymorpthism 
+"""
+one name ,many forms
+
+run
+person can run fast
+car runs on petrol 
+computer program run smoothly
+
+1 word = run
+"""
+print(len('python'))
+print(len({1,2,3}))
+print(len({"a":1 , "b": 2 , "c":4}))
+
+#polymorphism with classes
+
+class Bird():
+    def sound(self):
+        print("Birds make  sounds ")
+
+class Crow(Bird):
+    def sound(self):
+        print('Crow make  sounds "Caw Caw"')
+
+class Parrot(Bird):
+    def sound(self):
+        print('Parrot make  sounds "squawk"')
+
+bird1= Crow()
+bird2= Parrot()
+
+bird1.sound()
+bird2.sound()
+
+#encapsulation
+# hide main code 
+#
+class BankAccount:
+    def __init__(self , account_number , balance):
+        self.account_number = account_number
+        self.__balance =balance     #hide , cannot accessable
+
+    def deposit(self,amount):
+        self.__balance += amount
+        print(f'Deposited{amount}.New balance{self.__balance}')
+
+    def get_balance(self):
+        return self.__balance
+    
+account = BankAccount('123456',5000)
+
+account.deposit(2000)
+print(account.get_balance())
+
+
+#inheritance
+class Animal:
+    def speak(self):
+        print('Animals make sounds')
+
+class Dog(Animal):
+    def bark(self):
+        print('Dogs bark')
+
+dog = Dog()
+dog.speak()
+dog.bark()
+
+
+# Data abstraction
+# hide complex ditails 
+
+from abc import ABC, abstractmethod
+
+class Vehical(ABC):
+    @abstractmethod
+    def start(self):
+        pass # no implementation
+
+class Car(Vehical):
+    def start(self):
+        print("Car starts with a key")
+
+class Bike(Vehical) :
+    def start(self):
+        print('Bike starts with a button')
+
+car =Car()
+bike = Bike()
+
+car.start()
+bike.start()
+
+

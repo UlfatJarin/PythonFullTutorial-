@@ -80,7 +80,7 @@ say_hello()
 
 
 #genarator 
-def count_down (num)
+def count_down (num):
     while num > 0:
         yield num    #yeild values one at a time 
         num -=1
